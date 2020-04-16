@@ -96,6 +96,11 @@
     "@types/minimatch" "*"
     "@types/node" "*"
 
+"@types/google-apps-script@^1.0.12":
+  version "1.0.12"
+  resolved "https://registry.yarnpkg.com/@types/google-apps-script/-/google-apps-script-1.0.12.tgz#1aa919434eaf550632a074a0bf3ea9c5c18c6139"
+  integrity sha512-Vrg53MAJy1nSDmfCBmQxeUYjwkqdcfjLilyf5UswzdZd/dy4IuPgdJZgtiQiINIidltxr+TT2XBV6O0CIQYWFQ==
+
 "@types/html-minifier-terser@^5.0.0":
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/@types/html-minifier-terser/-/html-minifier-terser-5.0.0.tgz#7532440c138605ced1b555935c3115ddd20e8bef"

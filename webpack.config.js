@@ -2,7 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const HtmlWebpackInlineSourcePlugin = require("html-webpack-inline-source-plugin");
 
-/** Base Paramater */
+/** Base Paramater for React */
 const mode = process.env.NODE_ENV === "development" ? "development" : "production";
 const entry = path.resolve("src", "Index.tsx");
 const outPath = path.resolve("build");
@@ -22,13 +22,20 @@ const plugins = [
   new HtmlWebpackInlineSourcePlugin(HtmlWebpackPlugin),
 ]
 
-module.exports = {
-  mode,
-  entry,
-  output,
-  module: { rules },
-  resolve,
-  externals,
-  devServer,
-  plugins,
-}
+module.exports = [
+  { // React
+    mode,
+    entry,
+    output,
+    module: { rules },
+    resolve,
+    externals,
+    devServer,
+    plugins,
+  }, // Google Apps Script
+  {
+    mode: "none",
+    entry: path.resolve("src", "gas", "app.js"),
+    output: { path: outPath, filename: "app.js" },
+  }
+]

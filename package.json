@@ -8,10 +8,13 @@
   "private": true,
   "scripts": {
     "dev": "NODE_ENV=development npx webpack-dev-server --open --hot",
-    "build": "NODE_ENV=production npx webpack && rm build/main.js"
+    "shell": "rm build/main.js & cp ./src/gas/app.js ./build/app.js",
+    "build": "NODE_ENV=development npx webpack && npm run shell && clasp push --force && clasp open",
+    "deploy": "NODE_ENV=production npx webpack && rm build/main.js && clasp push --force && clasp open"
   },
   "dependencies": {
     "@material-ui/core": "4.9.10",
+    "@types/google-apps-script": "^1.0.12",
     "@types/react": "16.9.34",
     "@types/react-dom": "16.9.6",
     "html-webpack-inline-source-plugin": "1.0.0-beta.2",
