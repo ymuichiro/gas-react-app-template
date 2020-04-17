@@ -9,7 +9,6 @@ function doGet() {
 
 function recieveSpreadsheet() {
   // GAS環境時
-  const ss = SpreadsheetApp.getActiveSpreadsheet();
-  console.log(ss.getSheets()[0].getSheetName());
+  console.log("spreadsheet");
   return;
 }
