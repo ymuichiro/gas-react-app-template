@@ -2,11 +2,11 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const HtmlWebpackInlineSourcePlugin = require("html-webpack-inline-source-plugin");
 
-/** Base Paramater for React */
+/** Base Paramater */
 const mode = process.env.NODE_ENV === "development" ? "development" : "production";
-const entry = path.resolve("src", "Index.tsx");
+const entry = path.resolve("src", "App.tsx");
 const outPath = path.resolve("build");
-const outFileName = "main.js";
+const outFileName = "app.js";
 /** Other Paramater */
 const rules = [{ test: /\.tsx?$/, use: "ts-loader" }];
 const resolve = { extensions: [".ts", ".tsx", ".js", ".json"] };
@@ -15,7 +15,8 @@ const devServer = { contentBase: outPath };
 const externals = [{
   "react": "React",
   "react-dom": "ReactDOM",
-  "@material-ui/core": 'MaterialUI',
+  "@material-ui/core": "MaterialUI",
+  "react-router-dom": "ReactRouterDOM",
 }];
 const plugins = [
   new HtmlWebpackPlugin({ inject: true, inlineSource: '.(js|css|tsx)$', template: "./src/index.html" }),
