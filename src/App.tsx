@@ -6,6 +6,9 @@ import AboutPage from "./pages/AboutPage";
 import { IDatabase } from "./type";
 import { Database } from "./context";
 
+/** True = Debug Mode */
+export const debugMode = false;
+
 export default function App() {
 
   /** Contextするオブジェクトを初期化する */
