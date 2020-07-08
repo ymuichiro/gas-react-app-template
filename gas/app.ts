@@ -8,7 +8,9 @@ function doGet() {
 }
 
 function recieveSpreadsheet() {
-  // GAS環境時
   console.log("spreadsheet");
   return;
 }
+
+// Exportはしないが、--isolateModule対策として記述
+export { }

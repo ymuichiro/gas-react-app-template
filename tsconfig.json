@@ -1,6 +1,10 @@
 {
   "compilerOptions": {
     "target": "es5",
+    "typeRoots": [
+      "types",
+      "./node_modules/@types"
+    ],
     "lib": [
       "dom",
       "dom.iterable",
@@ -20,6 +24,6 @@
     "outDir": "build"
   },
   "include": [
-    "src"
+    "src", "types/CommonType.ts", "gas"
   ]
 }

@@ -3,17 +3,22 @@ import ReactDOM from "react-dom";
 import * as ReactRouterDOM from "react-router-dom";
 import TopPage from "./pages/TopPage";
 import AboutPage from "./pages/AboutPage";
-import { IDatabase } from "./type";
-import { Database } from "./context";
+import { IDatabase } from "../types/CommonType";
+import { Database } from "./Context";
+import WindowExtention from "../types/WIndowExtention";
+
+/** Google Script Run呼び出し用変数を定義 */
+export let google = WindowExtention.google;
 
 /** True = Debug Mode */
 export const debugMode = false;
 
 export default function App() {
+  const [name, setName] = React.useState<string>("");
 
   /** Contextするオブジェクトを初期化する */
   const db: IDatabase = {
-    name: "sample site",
+    name, setName,
   }
 
   return <div>

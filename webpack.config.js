@@ -19,7 +19,7 @@ const externals = [{
   "react-router-dom": "ReactRouterDOM",
 }];
 const plugins = [
-  new HtmlWebpackPlugin({ inject: true, inlineSource: '.(js|css|tsx)$', template: "./src/index.html" }),
+  new HtmlWebpackPlugin({ inject: true, inlineSource: '.(js|css|tsx)$', template: "./public/index.html" }),
   new HtmlWebpackInlineSourcePlugin(HtmlWebpackPlugin),
 ]
 
@@ -36,7 +36,7 @@ module.exports = [
   }, // Google Apps Script
   {
     mode: "none",
-    entry: path.resolve("src", "gas", "app.js"),
+    entry: path.resolve("gas", "app.ts"),
     output: { path: outPath, filename: "app.js" },
   }
 ]

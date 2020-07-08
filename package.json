@@ -1,32 +1,33 @@
 {
   "name": "web-app-template",
-  "version": "0.0.1",
+  "version": "0.1.1",
   "description": "template of web application",
-  "main": "./src/Index.tsx",
+  "main": "./src/App.tsx",
   "author": "ym.u.ichiro@gmail.com",
   "license": "MIT",
   "private": true,
   "scripts": {
     "dev": "NODE_ENV=development npx webpack-dev-server --open --hot",
-    "shell": "rm build/app.js & cp ./src/gas/app.js ./build/app.js",
+    "shell": "rm build/app.js & cp ./gas/app.ts ./build/app.ts",
     "build": "NODE_ENV=development npx webpack && npm run shell && clasp push --force && clasp open",
-    "deploy": "NODE_ENV=production npx webpack && npm run shell && clasp push --force && clasp open"
+    "deploy": "NODE_ENV=production npx webpack && npm run shell && clasp push --force && clasp open",
+    "create": "clasp create --rootDir ./build"
   },
   "dependencies": {
-    "@types/google-apps-script": "1.0.12",
-    "@material-ui/core": "4.9.10",
-    "@types/react": "16.9.34",
-    "@types/react-dom": "16.9.6",
-    "@types/react-router-dom": "5.1.4",
+    "@types/google-apps-script": "*",
+    "@material-ui/core": "*",
+    "@types/react": "*",
+    "@types/react-dom": "*",
+    "@types/react-router-dom": "*",
     "html-webpack-inline-source-plugin": "1.0.0-beta.2",
-    "html-webpack-plugin": "4.2.0",
-    "react": "16.13.1",
-    "react-dom": "16.13.1",
-    "react-router-dom": "5.1.2",
-    "ts-loader": "6.2.2",
-    "typescript": "3.8.3",
-    "webpack": "4.42.1",
-    "webpack-cli": "3.3.11",
-    "webpack-dev-server": "3.10.3"
+    "html-webpack-plugin": "*",
+    "react": "*",
+    "react-dom": "*",
+    "react-router-dom": "*",
+    "ts-loader": "*",
+    "typescript": "*",
+    "webpack": "*",
+    "webpack-cli": "*",
+    "webpack-dev-server": "*"
   }
 }
