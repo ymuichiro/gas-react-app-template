@@ -33,10 +33,5 @@ module.exports = [
     externals,
     devServer,
     plugins,
-  }, // Google Apps Script
-  {
-    mode: "none",
-    entry: path.resolve("gas", "app.ts"),
-    output: { path: outPath, filename: "app.js" },
   }
 ]
