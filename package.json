@@ -7,15 +7,14 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "dev": "NODE_ENV=development npx webpack-dev-server --open --hot",
-    "shell": "rm build/app.js & cp ./gas/app.ts ./build/app.ts",
-    "build": "NODE_ENV=development npx webpack && npm run shell && clasp push --force && clasp open",
-    "deploy": "NODE_ENV=production npx webpack && npm run shell && clasp push --force && clasp open",
+    "dev": "NODE_ENV=development npx webpack-dev-server --hot",
+    "build": "NODE_ENV=development npx webpack && rm build/app.js && clasp push --force && clasp open",
+    "deploy": "NODE_ENV=production npx webpack && rm build/app.js && clasp push --force && clasp open",
     "create": "clasp create --rootDir ./build"
   },
   "dependencies": {
     "@material-ui/core": "4.9.10",
-    "@types/google-apps-script": "1.0.12",
+    "@types/google-apps-script": "1.0.14",
     "@types/react": "16.9.34",
     "@types/react-dom": "16.9.6",
     "@types/react-router-dom": "5.1.4",

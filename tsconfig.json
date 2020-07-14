@@ -1,8 +1,7 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "ES2019",
     "typeRoots": [
-      "types",
       "./node_modules/@types"
     ],
     "lib": [
@@ -24,6 +23,6 @@
     "outDir": "build"
   },
   "include": [
-    "src", "types/CommonType.ts", "gas"
+    "src",
   ]
 }

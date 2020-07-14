@@ -20,3 +20,4 @@ ReactとMaterial-UIによるWeb開発を行う際のテンプレート。
     - 2020/04/16：process.envによるpackage.json scriptsの効率化を実施
     - 2020/04/25：React Routerに対応、かつCDNのバージョン固定を実施
     - 2020/07/09：google.script.runをTSファイル上で操作可能に修正（アンビエント宣言追加）
+    - 2020/07/14：V8 Runtimeに対応（tsconfig変更）
