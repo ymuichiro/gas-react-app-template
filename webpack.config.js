@@ -12,6 +12,7 @@ const rules = [{ test: /\.tsx?$/, use: "ts-loader" }];
 const resolve = { extensions: [".ts", ".tsx", ".js", ".json"] };
 const output = { path: outPath, filename: outFileName };
 const devServer = { contentBase: outPath };
+const devtool = "inline-source-map";
 const externals = [{
   "react": "React",
   "react-dom": "ReactDOM",
@@ -32,6 +33,7 @@ module.exports = [
     resolve,
     externals,
     devServer,
+    devtool,
     plugins,
   }
 ]
