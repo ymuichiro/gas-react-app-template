@@ -4,13 +4,10 @@
 */
 
 function doGet() {
-  return HtmlService.createTemplateFromFile("index").evaluate();
+    return HtmlService.createTemplateFromFile("index").evaluate();
 }
 
 function recieveSpreadsheet() {
-  console.log("spreadsheet");
-  return;
+    console.log("spreadsheet");
+    return;
 }
-
-// Exportはしないが、--isolateModule対策として記述
-export { }
