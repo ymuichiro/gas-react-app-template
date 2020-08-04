@@ -14,26 +14,27 @@ const output = { path: outPath, filename: outFileName };
 const devServer = { contentBase: outPath };
 const devtool = "inline-source-map";
 const externals = [{
-  "react": "React",
-  "react-dom": "ReactDOM",
-  "@material-ui/core": "MaterialUI",
-  "react-router-dom": "ReactRouterDOM",
+    "react": "React",
+    "react-dom": "ReactDOM",
+    "@material-ui/core": "MaterialUI",
+    "react-router-dom": "ReactRouterDOM",
+    "react-hook-form": "ReactHookForm",
 }];
 const plugins = [
-  new HtmlWebpackPlugin({ inject: true, inlineSource: '.(js|css|tsx)$', template: "./public/index.html" }),
-  new HtmlWebpackInlineSourcePlugin(HtmlWebpackPlugin),
+    new HtmlWebpackPlugin({ inject: true, inlineSource: '.(js|css|tsx)$', template: "./public/index.html" }),
+    new HtmlWebpackInlineSourcePlugin(HtmlWebpackPlugin),
 ]
 
 module.exports = [
-  { // React
-    mode,
-    entry,
-    output,
-    module: { rules },
-    resolve,
-    externals,
-    devServer,
-    devtool,
-    plugins,
-  }
+    { // React
+        mode,
+        entry,
+        output,
+        module: { rules },
+        resolve,
+        externals,
+        devServer,
+        devtool,
+        plugins,
+    }
 ]

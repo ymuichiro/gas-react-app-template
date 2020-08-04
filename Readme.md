@@ -23,3 +23,5 @@ ReactとMaterial-UIによるWeb開発を行う際のテンプレート。
     - 2020/07/09：google.script.runをTSファイル上で操作可能に修正（アンビエント宣言追加）
     - 2020/07/14：V8 Runtimeに対応（tsconfig変更）
     - 2020/08/03：Form作成ライブラリとしてReact-Hook-Formを追加
+    - 2020/08/04：Transitionのサンプルを追加
+    - 2020/08/04：よく使うComponentをサンプルとして追加

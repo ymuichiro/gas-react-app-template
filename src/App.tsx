@@ -29,10 +29,16 @@ export function App() {
                 <HashRouter>
                     <Switch>
                         {/* context対象を記載 */}
-                        <Route exact path="/"><TopPage /></Route>
-                        <Route path="/about"><AboutPage /></Route>
+                        <Route exact path="/">
+                            <TopPage />
+                        </Route>
+                        <Route path="/about">
+                            <AboutPage />
+                        </Route>
                         {/* Default pathはSwitch最後に記載を */}
-                        <Route ><TopPage /></Route>
+                        <Route >
+                            <TopPage />
+                        </Route>
                     </Switch>
                 </HashRouter>
             </Database.Provider>
