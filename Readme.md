@@ -25,3 +25,5 @@ ReactとMaterial-UIによるWeb開発を行う際のテンプレート。
     - 2020/08/03：Form作成ライブラリとしてReact-Hook-Formを追加
     - 2020/08/04：Transitionのサンプルを追加
     - 2020/08/04：よく使うComponentをサンプルとして追加
+    - 2020/08/05：Rechartsライブラリを追加
+    - 2020/08/05：GAS Editerの重さ対策にGulpによる改行を追加
