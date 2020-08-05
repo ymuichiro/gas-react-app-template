@@ -1,5 +1,7 @@
-import React, { } from "react";
+import React, { useRef, useState, useContext } from "react";
 import { makeStyles, createStyles, Container, Grid, Typography, Button } from "@material-ui/core";
+import { IDatabase } from "../../../types/CommonType";
+import { Database } from "../../context";
 
 const useStyle = makeStyles(theme => createStyles({
     headerSpacer: theme.mixins.toolbar,
@@ -31,25 +33,21 @@ const useStyle = makeStyles(theme => createStyles({
 
 export const SampleTransitionIn = () => {
     const classes = useStyle();
-    const [open, setOpen] = React.useState<boolean>(false);
+    const db = useContext<IDatabase>(Database);
+    const ref = useRef<HTMLDivElement>(null);
 
+    /** 対象の要素の位置までScrollされた時にTransitionを実行する */
     const transitionHundle = () => {
-        return open === true ? classes.transitionStart : classes.transitionEnd;
+        if (ref.current === null) return;
+        return db.nowPosition < ref.current.offsetTop ? classes.transitionStart : classes.transitionEnd;
     }
 
-    return <Container>
-        <Button
-            onClick={() => setOpen(!open)}
-            variant="contained"
-        >
-            TransitionStart
-            </Button>
-
+    return <Container component="div" ref={ref}>
         <Typography
             variant="h1"
             className={classes.root + " " + transitionHundle()}
             align="center"
-        >TransitionIn
+        >TransitionInOut
         </Typography>
     </Container >
 }

@@ -10,7 +10,7 @@ const useStyle = makeStyles(theme => createStyles({
         width: "100vw",
         height: "100vh",
         backgroundColor: theme.palette.background.paper,
-        opacity: 0.3,
+        opacity: 0.2,
         zIndex: 9999,
     },
     rootEnd: {

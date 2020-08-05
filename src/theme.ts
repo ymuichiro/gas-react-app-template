@@ -25,4 +25,9 @@ export const theme = createMuiTheme({
             secondary: "rgba(0, 0, 0, 0.54)",
         },
     },
+    transitions: {
+        duration: {
+            complex: 1000,
+        }
+    }
 })

@@ -17,10 +17,17 @@ export const debugMode = false;
 
 export function App() {
     const [name, setName] = useState<string>("");
+    const [nowPosition, setNowPosition] = useState<number>(0);
 
     /** Contextするオブジェクトを初期化する */
     const db: IDatabase = {
+        nowPosition,
         name, setName,
+    }
+
+    /** Transitionとして利用する為のScroll量をStateに保持する */
+    window.onscroll = () => {
+        setNowPosition(window.pageYOffset);
     }
 
     return <div>
