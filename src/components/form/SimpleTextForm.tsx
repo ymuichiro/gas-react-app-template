@@ -1,8 +1,6 @@
 import React, { RefObject, CSSProperties } from "react";
-import { TextField, makeStyles, createStyles, Typography, duration } from "@material-ui/core";
-import { DeepMap } from "react-hook-form/dist/types/utils";
+import { TextField, makeStyles, createStyles, Typography } from "@material-ui/core";
 import { FieldError } from "react-hook-form";
-import { IFormInputs } from "./BaseForm";
 
 type ISimpleTextForm = {
     name: string,

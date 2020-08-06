@@ -1,14 +1,14 @@
-import React, { CSSProperties, Ref, RefObject } from "react";
-import { TextField, Button, Menu, MenuItem } from "@material-ui/core";
+import React, { CSSProperties, useState } from "react";
+import { TextField, Menu, MenuItem } from "@material-ui/core";
 
 type ISelectForm = {
-    name: string,
-    label: string,
-    register: any,
-    setValue: Function,
-    optionsKey: string[],
-    class?: string,
-    css?: CSSProperties,
+	name: string,
+	label: string,
+	register: any,
+	setValue: Function,
+	optionsKey: string[],
+	class?: string,
+	css?: CSSProperties,
 }
 
 
@@ -18,43 +18,55 @@ type ISelectForm = {
  * @param props
  */
 export const SelectForm = (props: ISelectForm) => {
-    const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+	const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+	const [value, setValue] = useState<string>("");
 
-    const handleClick = (event: any) => {
-        setAnchorEl(event.currentTarget);
-    };
+	const handleClick = (event: any) => {
+		setAnchorEl(event.currentTarget);
+	};
 
-    const handleClose = () => {
-        setAnchorEl(null);
-    };
+	const handleClose = (event: React.MouseEvent<HTMLLIElement, MouseEvent>) => {
+		setAnchorEl(null);
+		const keyData = event.currentTarget.getAttribute("key-data");
+		if (keyData !== null) {
+			setValue(keyData);
+		};
+	}
 
-    const PopUpMenu = () => {
-        return <Menu
-            id="simple-menu"
-            anchorEl={anchorEl}
-            keepMounted
-            open={Boolean(anchorEl)}
-            onClose={handleClose}
-            anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "center",
-            }}
-        >
-            <MenuItem onClick={handleClose}>Profile</MenuItem>
-            <MenuItem onClick={handleClose}>My account</MenuItem>
-            <MenuItem onClick={handleClose}>Logout</MenuItem>
-        </Menu>
-    }
+	const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
+		setValue(event.currentTarget.value);
+	}
 
-    return <div>
-        <TextField
-            name={props.name}
-            label={props.label}
-            inputRef={props.register}
-            className={props.class === undefined ? "" : props.class}
-            style={props.css === undefined ? {} : props.css}
-            onFocus={handleClick}
-        />
-        <PopUpMenu />
-    </div>
+	const PopUpMenu = () => {
+		return <Menu
+			anchorEl={anchorEl}
+			keepMounted
+			open={Boolean(anchorEl)}
+			onClose={handleClose}
+		>
+			{
+				props.optionsKey.map((key, index) => <MenuItem
+					key={index}
+					key-data={key}
+					onClick={handleClose}
+				>
+					{key}
+				</MenuItem>)
+			}
+		</Menu>
+	}
+
+	return <div>
+		<TextField
+			name={props.name}
+			label={props.label}
+			inputRef={props.register}
+			value={value}
+			onChange={handleChange}
+			className={props.class === undefined ? "" : props.class}
+			style={props.css === undefined ? {} : props.css}
+			onFocus={handleClick}
+		/>
+		<PopUpMenu />
+	</div>
 }
