@@ -9,38 +9,38 @@ const outPath = path.resolve("build");
 const outFileName = "app.js";
 /** Other Paramater */
 const rules = [
-    {
-        test: /\.tsx?$/,
-        use: "ts-loader"
-    },
+	{
+		test: /\.tsx?$/,
+		use: "ts-loader"
+	},
 ];
 const resolve = { extensions: [".ts", ".tsx", ".js", ".json"] };
 const output = { path: outPath, filename: outFileName };
 const devServer = { contentBase: outPath };
-const devtool = "inline-source-map";
+const devtool = process.env.NODE_ENV === "development" ? "inline-source-map" : "";
 const externals = [{
-    "react": "React",
-    "react-dom": "ReactDOM",
-    "@material-ui/core": "MaterialUI",
-    "react-router-dom": "ReactRouterDOM",
-    "react-hook-form": "ReactHookForm",
-    "recharts": "Recharts",
+	"react": "React",
+	"react-dom": "ReactDOM",
+	"@material-ui/core": "MaterialUI",
+	"react-router-dom": "ReactRouterDOM",
+	"react-hook-form": "ReactHookForm",
+	"recharts": "Recharts",
 }];
 const plugins = [
-    new HtmlWebpackPlugin({ inject: true, inlineSource: '.(js|css|tsx)$', template: "./public/index.html" }),
-    new HtmlWebpackInlineSourcePlugin(HtmlWebpackPlugin),
+	new HtmlWebpackPlugin({ inject: true, inlineSource: '.(js|css|tsx)$', template: "./public/index.html" }),
+	new HtmlWebpackInlineSourcePlugin(HtmlWebpackPlugin),
 ]
 
 module.exports = [
-    {
-        mode,
-        entry,
-        output,
-        module: { rules },
-        resolve,
-        externals,
-        devServer,
-        devtool,
-        plugins,
-    }
+	{
+		mode,
+		entry,
+		output,
+		module: { rules },
+		resolve,
+		externals,
+		devServer,
+		devtool,
+		plugins,
+	}
 ]
