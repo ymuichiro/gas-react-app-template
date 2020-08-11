@@ -1,13 +1,15 @@
-import React, { RefObject, CSSProperties } from "react";
-import { TextField } from "@material-ui/core";
+import React, { RefObject, CSSProperties, Fragment } from "react";
+import { TextField, Box } from "@material-ui/core";
+import { FieldError } from "react-hook-form";
 
 type IEmailForm = {
-    name: string,
-    label: string,
-    register: ((instance: any) => void) | RefObject<any> | null | undefined,
-    variant: "standard" | "filled" | "outlined",
-    class?: string,
-    css?: CSSProperties,
+	name: string,
+	label: string,
+	register: ((instance: any) => void) | RefObject<any> | null | undefined,
+	variant: "standard" | "filled" | "outlined",
+	errors: FieldError | undefined,
+	class?: string,
+	css?: CSSProperties,
 }
 
 /**
@@ -16,14 +18,17 @@ type IEmailForm = {
  */
 export const EmailForm = (props: IEmailForm) => {
 
-    return <TextField
-        margin="dense"
-        name={props.name}
-        label={props.label}
-        inputRef={props.register}
-        variant={props.variant}
-        type="email"
-        className={props.class === undefined ? "" : props.class}
-        style={props.css === undefined ? {} : props.css}
-    />
+	return <Fragment>
+		<TextField
+			margin="dense"
+			name={props.name}
+			label={props.label}
+			inputRef={props.register}
+			variant={props.variant}
+			type="email"
+			className={props.class === undefined ? "" : props.class}
+			style={props.css === undefined ? {} : props.css}
+		/>
+		{props.errors && <Box color="error.main">入力必須です</Box>}
+	</Fragment>
 }

@@ -1,11 +1,13 @@
-import React, { CSSProperties, useState } from "react";
-import { TextField, Menu, MenuItem } from "@material-ui/core";
+import React, { CSSProperties, useState, Fragment } from "react";
+import { TextField, Menu, MenuItem, Box } from "@material-ui/core";
+import { FieldError } from "react-hook-form";
 
 type ISelectForm = {
 	name: string,
 	label: string,
 	register: any,
 	setValue: Function,
+	errors?: FieldError | undefined,
 	optionsKey: string[],
 	class?: string,
 	css?: CSSProperties,
@@ -56,7 +58,7 @@ export const SelectForm = (props: ISelectForm) => {
 		</Menu>
 	}
 
-	return <div>
+	return <Fragment>
 		<TextField
 			name={props.name}
 			label={props.label}
@@ -68,5 +70,6 @@ export const SelectForm = (props: ISelectForm) => {
 			onFocus={handleClick}
 		/>
 		<PopUpMenu />
-	</div>
+		{props.errors && <Box color="error.main">入力必須です</Box>}
+	</Fragment>
 }
