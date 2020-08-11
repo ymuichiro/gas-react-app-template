@@ -21,7 +21,10 @@ export type IFormInputs = {
 
 /** 基本のフォームを組み立てるComponent群 */
 export const BaseForm = () => {
-	const { register, handleSubmit, setValue, errors } = useForm<IFormInputs>();
+	const { register, handleSubmit, setValue, errors } = useForm<IFormInputs>({
+		// 再バリデーションタイミング（DefaultはonChangeであるが、フォーム数が多いと重い
+		reValidateMode: "onSubmit",
+	});
 	const [formVariant] = useState<"standard" | "filled" | "outlined">("standard");
 
 	const onSubmitHundle = handleSubmit((e: IFormInputs) => {
@@ -59,6 +62,7 @@ export const BaseForm = () => {
 				name: "email",
 				label: "メールアドレス",
 				register,
+				errors: errors.email,
 				variant: formVariant,
 				css: { width: "100%" }
 			}} />
@@ -81,6 +85,7 @@ export const BaseForm = () => {
 				name: "age",
 				label: "年齢",
 				register,
+				errors: errors.age,
 				variant: formVariant,
 				setValue,
 				css: { width: "100%" }
