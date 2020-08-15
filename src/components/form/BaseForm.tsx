@@ -7,6 +7,7 @@ import { TableForm } from "./TableForm";
 import { ZipCodeForm } from "./ZipCode";
 import { EmailForm } from "./EmailForm";
 import { SelectForm } from "./SelectForm";
+import { TelNoForm } from "./TelNo";
 
 export type IFormInputs = {
 	name: string,
@@ -97,6 +98,13 @@ export const BaseForm = () => {
 				setValue,
 				variant: formVariant,
 				register
+			}} />
+			<TelNoForm {...{
+				name: "tel",
+				label: "電話番号",
+				setValue,
+				variant: formVariant,
+				register,
 			}} />
 			<Button
 				style={{ marginTop: "1em" }}
